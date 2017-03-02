@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     let output = ShortestPath()
-
-    var path = ""
+    let input = Matrix()
+    
     var colCount = 0
     @IBOutlet weak var rowTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
@@ -33,14 +33,14 @@ class ViewController: UIViewController {
         pathTotalLabel.text = ""
         pathIndexLabel.text = ""
         matrixLabel.text = ""
-        
+        outputButton.isHidden = true
     }
     
     @IBAction func addRowClicked(_ sender: Any) {
         
         errorLabel.text = ""
         if rowTextField.text != "" {
-            if output.rowVerification(input: splitString(string: rowTextField.text!)) {
+            if input.rowVerification(input: splitString(string: rowTextField.text!)) {
                 if(rows.count == 0) {
                     colCount = splitString(string: rowTextField.text!).count
                 }
@@ -53,12 +53,13 @@ class ViewController: UIViewController {
                     }
                 }
                 rows.append(splitString(string: rowTextField.text!) as! [String])
-                matrixLabel.text = String(describing: rows)
+                let rowText = matrixLabel.text! + "\n" + String(describing: rows[rows.count-1])
+                matrixLabel.text = rowText
                 errorLabel.text = "Row Added"
                 errorLabel.textColor = UIColor.blue
                 rowTextField.text = ""
-                outputButton .isHidden = false
-
+                outputButton.isHidden = false
+                
             }else {
                 errorLabel.text = "Please enter a valid row"
                 errorLabel.textColor = UIColor.red
@@ -72,17 +73,17 @@ class ViewController: UIViewController {
         pathTotalLabel.text = ""
         pathIndexLabel.text = ""
         boolLabel.text = ""
-        }
+    }
     
-    
+    //Separates the string by ","
     func splitString(string: String) -> [Any] {
         let returnString = string.components(separatedBy: ",")
         return returnString
     }
     
     @IBAction func outputClicked(_ sender: Any) {
-        let (result,len,path) = output.shortestPath(a: createMatrix())
-            
+        let (result,len,path) = output.shortestPath(a: input.createMatrix())
+        
         if rows.count == 0 {
             errorLabel.text = "Please enter a valid row"
             errorLabel.textColor = UIColor.red
@@ -94,19 +95,9 @@ class ViewController: UIViewController {
         }
     }
     
-    func createMatrix()->[[Int]] {
-        var test1 = [[Int]]()
-        for row in rows {
-            let intRow = row.map{ Int($0)}
-            test1.append(intRow as! [Int])
-        }
-        return test1
-    }
-    
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -116,8 +107,8 @@ class ViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

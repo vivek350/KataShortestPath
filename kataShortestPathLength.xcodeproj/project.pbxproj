@@ -14,6 +14,7 @@
 		E24008171E5CF1A400ACE989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E24008151E5CF1A400ACE989 /* LaunchScreen.storyboard */; };
 		E24008221E5CF1A500ACE989 /* kataShortestPathLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24008211E5CF1A500ACE989 /* kataShortestPathLengthTests.swift */; };
 		E240082F1E5D34F100ACE989 /* ShortestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E240082E1E5D34F100ACE989 /* ShortestPath.swift */; };
+		E279E6CA1E688C9800ED331B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E279E6C91E688C9800ED331B /* Matrix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		E24008211E5CF1A500ACE989 /* kataShortestPathLengthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kataShortestPathLengthTests.swift; sourceTree = "<group>"; };
 		E24008231E5CF1A500ACE989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E240082E1E5D34F100ACE989 /* ShortestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortestPath.swift; sourceTree = "<group>"; };
+		E279E6C91E688C9800ED331B /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				E240080C1E5CF1A400ACE989 /* AppDelegate.swift */,
 				E240080E1E5CF1A400ACE989 /* ViewController.swift */,
+				E279E6C91E688C9800ED331B /* Matrix.swift */,
 				E240082E1E5D34F100ACE989 /* ShortestPath.swift */,
 				E24008101E5CF1A400ACE989 /* Main.storyboard */,
 				E24008131E5CF1A400ACE989 /* Assets.xcassets */,
@@ -202,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E279E6CA1E688C9800ED331B /* Matrix.swift in Sources */,
 				E240080F1E5CF1A400ACE989 /* ViewController.swift in Sources */,
 				E240082F1E5D34F100ACE989 /* ShortestPath.swift in Sources */,
 				E240080D1E5CF1A400ACE989 /* AppDelegate.swift in Sources */,
@@ -408,6 +412,7 @@
 				E24008281E5CF1A500ACE989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E24008291E5CF1A500ACE989 /* Build configuration list for PBXNativeTarget "kataShortestPathLengthTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +421,7 @@
 				E240082B1E5CF1A500ACE989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
