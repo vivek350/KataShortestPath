@@ -92,6 +92,16 @@ class ShortestPath {
         }
     }
     
+    //Verifies the row, if the user entered anything other than an integer
+    func rowVerification(input: [Any]) -> Bool {
+        for value in 0..<input.count {
+            let output: Int? = Int(String(describing: input[value]))
+            if output == nil {
+                return false
+            }
+        }
+        return true
+    }    
 }
 
 

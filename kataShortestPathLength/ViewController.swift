@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     let output = ShortestPath()
-    let input = Matrix()
     
     var colCount = 0
     @IBOutlet weak var rowTextField: UITextField!
@@ -40,7 +39,7 @@ class ViewController: UIViewController {
         
         errorLabel.text = ""
         if rowTextField.text != "" {
-            if input.rowVerification(input: splitString(string: rowTextField.text!)) {
+            if output.rowVerification(input: splitString(string: rowTextField.text!)) {
                 if(rows.count == 0) {
                     colCount = splitString(string: rowTextField.text!).count
                 }
@@ -82,7 +81,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func outputClicked(_ sender: Any) {
-        let (result,len,path) = output.shortestPath(a: input.createMatrix())
+        let (result,len,path) = output.shortestPath(a: createMatrix())
         
         if rows.count == 0 {
             errorLabel.text = "Please enter a valid row"
@@ -94,6 +93,17 @@ class ViewController: UIViewController {
             pathTotalLabel.text = "\(len)"
         }
     }
+    
+    //Creates a 2D matrix by appending the rows entered by the user
+    func createMatrix()->[[Int]] {
+        var rowMatrix = [[Int]]()
+        for row in rows {
+            let intRow = row.map{Int($0)}
+            rowMatrix.append(intRow as! [Int])
+        }
+        return rowMatrix
+    }
+
     
         override func viewDidLoad() {
         super.viewDidLoad()
